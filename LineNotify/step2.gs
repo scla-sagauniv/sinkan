@@ -25,7 +25,7 @@ function postContent() {
 }
 
 function sendPostContent(content) {
-  const token = ['tokenを張り付ける'];
+  const token = ['トークンコピペ'];
   const options = {
     "method": "post",
     "payload" : {"message": content },
@@ -59,10 +59,10 @@ function response2hash(response) {
 }
 
 function getNowYMDStr(){
-  const date = new Date();
-  const Y = date.getFullYear();
-  const M = ("00" + (date.getMonth()+1)).slice(-2);
-  const D = ("00" + date.getDate()).slice(-2);
+  const jst_date = new Date(Date.now() + ((new Date().getTimezoneOffset() + (9 * 60)) * 60 * 1000));
+  const Y = jst_date.getFullYear();
+  const M = ("00" + (jst_date.getMonth()+1)).slice(-2);
+  const D = ("00" + jst_date.getDate()).slice(-2);
 
   return `${Y}-${M}-${D}`;
 }
